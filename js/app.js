@@ -4,7 +4,7 @@
 
 /*---------------------------- Variables (state) ----------------------------*/
 
-const objState = {
+const state = {
     boredom: 0,
     hunger: 0, 
     sleepiness: 0, 
@@ -13,6 +13,7 @@ const objState = {
 let timer; 
 
 let gameOver = false;
+
 
 
 
@@ -52,12 +53,39 @@ const init = () => {
 }; 
 
 const runGame = () => {
-    console.log('the game is running'); 
+    updateStates();
+    checkGameOver(); 
+    render(); 
 }; 
 
 const render = () => {
+    boredomStatEl.textContent = state.boredom; 
+    hungerStatEl.textContent = state.hunger; 
+    sleepinessStatEl.textContent = state.sleepiness; 
+    if (gameOver === true) {
+        clearInterval(timer); 
+    }
+}; 
+render(); 
+
+
+const getRandomNumber = () => Math.floor(Math.random() * 4);
+
+const updateStates = () => {
+    for (let key in state) {
+        state[key] += getRandomNumber(); 
+    }
 }; 
 
+init(); 
+
+const checkGameOver = () => {
+    for (let key in state) {
+        if (state[key] >=10) {
+            gameOver = true;
+        }
+    }
+};
 /*----------------------------- Event Listeners -----------------------------*/
 
 
