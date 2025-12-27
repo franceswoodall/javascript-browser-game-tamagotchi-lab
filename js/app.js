@@ -37,7 +37,7 @@ const feedBtnEl = document.getElementById('feed');
 const sleepBtnEl = document.getElementById('sleep'); 
 // console.log('testing sleepBtn', sleepBtnEl); 
 
-const gameMessageEl = document.getElementById('game-state-wrapper'); 
+const gameMessageEl = document.getElementById('message'); 
 // console.log('testing game message', gameMessageEl); 
 
 const resetBtnEl = document.getElementById('restart'); 
@@ -64,6 +64,8 @@ const render = () => {
     sleepinessStatEl.textContent = state.sleepiness; 
     if (gameOver === true) {
         clearInterval(timer); 
+        resetBtnEl.classList.remove('hidden'); 
+        gameMessageEl.classList.remove('hidden'); 
     }
 }; 
 render(); 
