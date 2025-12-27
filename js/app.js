@@ -49,6 +49,11 @@ const resetBtnEl = document.getElementById('restart');
 /*-------------------------------- Functions --------------------------------*/
 
 const init = () => {
+    resetBtnEl.classList.add('hidden'); 
+    gameMessageEl.classList.add('hidden'); 
+    state.boredom = 0;
+    state.hunger = 0; 
+    state.sleepiness = 0; 
     timer = setInterval(runGame, 2000); 
 }; 
 
@@ -88,6 +93,27 @@ const checkGameOver = () => {
         }
     }
 };
+
+const playBtnClick = () => {
+    state.boredom = 0; 
+    render(); 
+}
+
+const feedBtnClick = () => {
+    state.hunger = 0; 
+    render(); 
+}
+
+const sleepBtnClick = () => {
+    state.sleepiness = 0;
+    render(); 
+}
 /*----------------------------- Event Listeners -----------------------------*/
 
+playBtnEl.addEventListener('click', playBtnClick); 
 
+feedBtnEl.addEventListener('click', feedBtnClick); 
+
+sleepBtnEl.addEventListener('click', sleepBtnClick); 
+
+resetBtnEl.addEventListener('click', init); 
