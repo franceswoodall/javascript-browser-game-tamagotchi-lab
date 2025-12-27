@@ -55,7 +55,8 @@ const runGame = () => {
     console.log('the game is running'); 
 }; 
 
-runGame(); 
+const render = () => {
+}; 
 
 /*----------------------------- Event Listeners -----------------------------*/
 
